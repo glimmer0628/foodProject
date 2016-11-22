@@ -1,0 +1,55 @@
+
+<div class="container marketing">
+
+	<nav>
+	  <ul class="pagination">
+	    <li><a href="#">&laquo;</a></li>
+	    <li ng-repeat="page in pageList">
+	    <!-- <a href="#/navbar/foodList/{{id}}/{{page}}">{{page}}</a> -->
+	     <a ui-sref="navbar.foodList({id:id,page:page})" ui-sref-active="active">{{page}}</a>
+
+
+	    </li>
+	    
+	    <li><a href="#">&raquo;</a></li>
+	  </ul>
+	</nav>
+
+
+	 <div class="row" ng-repeat='food in foodLists' ng-if='$index % 3==0' >
+        <div class="col-lg-4" ng-if="foodLists[$index].id!=undefined" >
+          <img class="img-circle" lazy-src="{{globaVar.imagePrefix}}{{foodLists[$index].img}}" alt="{{foodLists[$index].name}}" style="width: 140px; height: 140px;">
+          <h2>{{foodLists[$index].name}}</h2>
+          <p>{{foodLists[$index].description|limitTo:50}}</p>
+          <p><a class="btn btn-default" href="#/navbar/foodDetail/{{foodLists[$index].id}}" role="button">查看详情 &raquo;</a></p>
+        </div>
+         <div class="col-lg-4" ng-if="foodLists[$index+1].id!=undefined" >
+          <img class="img-circle" lazy-src="{{globaVar.imagePrefix}}{{foodLists[$index+1].img}}" alt="{{foodLists[$index+1].name}}" style="width: 140px; height: 140px;">
+          <h2>{{foodLists[$index+1].name}}</h2>
+          <p>{{foodLists[$index+1].description|limitTo:50}}</p>
+          <p><a class="btn btn-default" href="#/navbar/foodDetail/{{foodLists[$index+1].id}}" role="button">查看详情 &raquo;</a></p>
+        </div>
+         <div class="col-lg-4" ng-if="foodLists[$index+2].id!=undefined">
+          <img class="img-circle" lazy-src="{{globaVar.imagePrefix}}{{foodLists[$index+2].img}}" alt="{{foodLists[$index+2].name}}" style="width: 140px; height: 140px;">
+          <h2>{{foodLists[$index+2].name}}</h2>
+          <p>{{foodLists[$index+2].description|limitTo:50}}</p>
+          <p><a class="btn btn-default" href="#/navbar/foodDetail/{{foodLists[$index+2].id}}" role="button">查看详情 &raquo;</a></p>
+        </div>
+       
+      </div>
+
+
+
+      <!-- <div class="row" ng-repeat='foods in foodLists' >
+        <div class="col-lg-4" ng-repeat="food in foods">
+          <img class="img-circle" ng-src="{{globaVar.imagePrefix}}{{food.img}}" alt="{{food.name}}" style="width: 140px; height: 140px;">
+          <h2>{{food.name}}</h2>
+          <p>{{food.description|limitTo:50}}</p>
+          <p><a class="btn btn-default" href="#" role="button">查看详情 &raquo;</a></p>
+        </div>
+       
+      </div> -->
+       
+
+</div>
+
